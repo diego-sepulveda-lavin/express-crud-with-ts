@@ -31,7 +31,7 @@ export const updateUserById = async (req: Request, res: Response): Promise<Respo
     const result = await getRepository(User).save(user);
     return res.status(200).json(result);
   }
-  return res.status(200).json({ msg: "User not found" });
+  return res.status(404).json({ msg: "User not found" });
 };
 
 export const deleteUserById = async (req: Request, res: Response): Promise<Response> => {
@@ -41,5 +41,5 @@ export const deleteUserById = async (req: Request, res: Response): Promise<Respo
     const result = await getRepository(User).remove(user);
     return res.status(200).json(result);
   }
-  return res.status(200).json({ msg: "User not found" });
+  return res.status(404).json({ msg: "User not found" });
 };
